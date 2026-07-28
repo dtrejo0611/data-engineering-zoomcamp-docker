@@ -10,6 +10,5 @@ df['month'] = month
 print(df.head())
 
 df.to_parquet(f"output_{month}.parquet")
-df.to_csv(f"output_{month}.csv")
 
 print(f"Hello from pipeline.py, month={month}")
