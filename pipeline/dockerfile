@@ -18,7 +18,7 @@ RUN uv sync --locked
 
 #Copiar archivo o archivos necesarios para el proyecto, en el caso de que 
 #el copy no tenga un argumento --from se copia desde el pc de trabajo:
-COPY ingest_data.py ./
+COPY ingest_zones.py ./
 
 #Para ejecutar directamente el codigo sin entrar a terminal
-ENTRYPOINT ["uv", "run", "python", "ingest_data.py"]
+ENTRYPOINT ["uv", "run", "python", "ingest_zones.py"]
