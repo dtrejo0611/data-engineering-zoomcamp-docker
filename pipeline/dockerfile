@@ -11,14 +11,14 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
 WORKDIR /app
 
 #Copiar archivos de dependencias del proyecto
-COPY pyproject.toml .python-version uv.lock ./
+COPY pyproject.toml .python-version uv.lock green_tripdata_2025-11.parquet .
 
 #Ejecutar comando para sincronizar dependencias con UV
 RUN uv sync --locked 
 
 #Copiar archivo o archivos necesarios para el proyecto, en el caso de que 
 #el copy no tenga un argumento --from se copia desde el pc de trabajo:
-COPY ingest_zones.py ./
+COPY ingest_data2.py ./
 
 #Para ejecutar directamente el codigo sin entrar a terminal
-ENTRYPOINT ["uv", "run", "python", "ingest_zones.py"]
+ENTRYPOINT ["uv", "run", "python", "ingest_data2.py"]
